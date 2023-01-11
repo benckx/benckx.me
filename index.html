@@ -1,25 +1,77 @@
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-16">
     <title>Benoît Vleminckx</title>
     <style>
         html {
-            background-color: #c2cbe2;
+            background-color: #aeb6cb;
+            font-family: Helvetica, Verdana, sans-serif;
+            font-size: 16px;
+        }
+
+        #my-name {
+            font-size: 20px;
+        }
+
+        a {
+            text-decoration: none;
         }
 
         #main-container {
+            border-radius: 10px;
             max-width: 1000px;
             width: 80%;
             background-color: #cdd7ed;
-            margin: 60px auto auto;
+            margin: 180px auto auto;
             padding: 20px;
             box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+        }
+
+        #icon-group {
+            width: 500px;
+            margin: 35px auto 5px;
+            text-align: center;
+            /*background-color: red;*/
+        }
+
+        #icon-group img {
+            padding-left: 2px;
+            padding-right: 2px;
+        }
+
+        img#profile-pic {
+            border-radius: 100%;
+            width: 180px;
+            height: 180px;
+            outline-offset: -2px;
+            outline: 1px solid black;
+            box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+            display: block;
+            /*margin: -83px auto 40px;*/
+            margin-top: -83px;
+            margin-bottom: 40px;
+            margin-left: 15px;
+            transform: rotate(4deg);
         }
     </style>
 </head>
 <body>
 <div id="main-container">
-    lorep ipsum
+    <img src="images/me.jpg" id="profile-pic" alt="me"/>
+    <span id="my-name"><b>Ben</b>oît Vlemin<b>ckx</b></span>
+    <p>I am currently working in the energy sector.</p>
+    <p>My background is in Java, however I am currently working with Scala and my preference goes to Kotlin.</p>
+    <div id="icon-group">
+        <a href="https://github.com/benckx">
+            <img src="icons/github-mark-black-35px.png" alt="GitHub"/>
+        </a>
+        <a href="https://github.com/benckx">
+            <img src="icons/github-mark-black-35px.png" alt="GitHub"/>
+        </a>
+        <a href="https://github.com/benckx">
+            <img src="icons/github-mark-black-35px.png" alt="GitHub"/>
+        </a>
+    </div>
 </div>
 </body>
 </html>
