@@ -32,8 +32,16 @@ a {
 }
 
 #icon-group img {
-    padding-left: 3px;
-    padding-right: 3px;
+    padding-left: 4px;
+    padding-right: 4px;
+    opacity: 60%;
+    width: 32px;
+    height: 32px;
+}
+
+#icon-group img:hover {
+    opacity: 90%;
+    transform: rotate(8deg);
 }
 
 img#profile-pic {
