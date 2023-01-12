@@ -6,6 +6,10 @@
     <title>benckx</title>
     <link rel="stylesheet" href="../style.css"/>
     <link rel="icon" type="image/png" href="../icons/encelade-icon-50px.png">
+    <link rel="stylesheet"
+          href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
 </head>
 <body>
 <div id="main-container">
@@ -22,21 +26,19 @@
     <img src="posters/the-others.jpg" alt="The Others (2001)" class="movie-poster"/>
     <img src="posters/aliens.jpg" alt="Alien: Resurrection (1997)" class="movie-poster"/>
     <pre class="code-block">
-The Matrix (1999)          ['Action: 91%', 'Drama[!]: 25%', 'Adventure[!]: 13%']
-The Others (2001)          ['Drama[!]: 76%', 'Horror: 65%', 'Action[!]: 41%']
-Alien: Resurrection (1997) ['Horror: 67%', 'Action: 64%', 'Drama[!]: 43%']
+The Matrix (1999)           ['Action: 91%', 'Drama[!]: 25%', 'Adventure[!]: 13%']
+The Others (2001)           ['Drama[!]: 76%', 'Horror: 65%', 'Action[!]: 41%']
+Alien: Resurrection (1997)  ['Horror: 67%', 'Action: 64%', 'Drama[!]: 43%']
     </pre>
     <img src="posters/the-trueman-show.jpg" alt="The Truman Show (1998)" class="movie-poster"/>
     <img src="posters/pretty-woman.jpg" alt="Pretty Woman (1990)" class="movie-poster"/>
     <img src="posters/whatever-works.jpg" alt="Whatever Works (2009)" class="movie-poster"/>
     <pre class="code-block">
-The Truman Show (1998)           ['Comedy: 98%', 'Drama: 76%', 'Romance[!]: 7%']
-Pretty Woman (1990)              ['Romance: 99%', 'Comedy: 99%', 'Drama[!]: 22%']
-Whatever Works (2009)            ['Drama[!]: 86%', 'Comedy: 78%', 'Romance: 76%']
+The Truman Show (1998)      ['Comedy: 98%', 'Drama: 76%', 'Romance[!]: 7%']
+Pretty Woman (1990)         ['Romance: 99%', 'Comedy: 99%', 'Drama[!]: 22%']
+Whatever Works (2009)       ['Drama[!]: 86%', 'Comedy: 78%', 'Romance: 76%']
     </pre>
-    <p><a href="https://github.com/benckx/dnn-movie-posters" target="_blank">
-        <img class="github-link-logo"/>GitHub
-    </a></p>
+    <a href="https://github.com/benckx/dnn-movie-posters" target="_blank" class="github-link-logo"><img/></a>
     <h3>Generate Movies Posters</h3>
     <p>It then occurred to me I could feed the same data into a GAN to generate movie posters, and sample the process at
         each iteration to show the learning process of the model in a video. Granted, it doesn't look like much today,
@@ -55,6 +57,15 @@ Whatever Works (2009)            ['Drama[!]: 86%', 'Comedy: 78%', 'Romance: 76%'
     <h3>CorsixTH</h3>
     <h2>Coding</h2>
     <h3>Generate jOOQ code from Liquibase</h3>
+    <pre><code class="language-kotlin">dslContext.transaction { cfg ->
+    val personDao = PersonDao(cfg)
+    val person = Person()
+    person.firstName = "Charles"
+    person.lastName = "Baudelaire"
+    personDao.insert(person)
+}</code></pre>
+    <a href="https://github.com/benckx/liquibase-jooq-codegen-example" target="_blank"
+       class="github-link-logo"><img/></a>
     <h3>Optimize PDFs for eReaders</h3>
     <h3>Count your time based on Git history</h3>
     <h2>Retro Gaming</h2>
@@ -66,12 +77,10 @@ Whatever Works (2009)            ['Drama[!]: 86%', 'Comedy: 78%', 'Romance: 76%'
         areas of interest.</p>
     <p>Since it was a falsifiable statement, this kindled my curiosity, and I took a couple of hours to write a small
         script that would fetch all rappers on Wikipedia along their date of birth. Quite unsurprisingly, one would find
-        no remarkable or significant correlation between the musical genre and the Gemini.</p>
+        no remarkable or significant correlation between the musical genre and Gemini.</p>
     <p>This may all seems a little bit odd and out of place, but I would argue it is important to develop the tools of
         critical thinking and debunk quackery everywhere it's found.</p>
-    <p><a href="https://github.com/benckx/are-rappers-gemini" target="_blank">
-        <img class="github-link-logo"/>GitHub
-    </a></p>
+    <a href="https://github.com/benckx/are-rappers-gemini" target="_blank" class="github-link-logo"><img/></a>
     <h3>Baudelaire on QR</h3>
     <h3>Physarium</h3>
 </div>

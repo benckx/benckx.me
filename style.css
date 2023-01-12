@@ -26,7 +26,7 @@ a:hover {
     color: #fa0b00;
 }
 
-img.social-media-link-logo, img.github-link-logo {
+.social-media-link-logo img, a.github-link-logo img {
     width: 17px;
     height: 17px;
     margin-top: -3px;
@@ -34,8 +34,12 @@ img.social-media-link-logo, img.github-link-logo {
     vertical-align: middle;
 }
 
-img.github-link-logo {
+a.github-link-logo img {;
     content: url(icons/github-mark-black-35px.png);
+}
+
+a.github-link-logo::after {
+    content: "GitHub";
 }
 
 #main-container {
@@ -83,13 +87,16 @@ img#profile-pic {
     transform: rotate(4deg);
 }
 
-.code-block {
-    font-family: "Courier New", serif;
-    font-size: 13px;
+.code-block, pre code.hljs {
+    font-size: 12px;
     border-radius: 2px;
     background-color: #eeeeee;
-    padding: 15px 15px 0;
-    width: 650px;
+    padding: 15px 20px 0;
+    width: 600px;
+}
+
+.code-block {
+    font-family: "Courier New", serif;
 }
 
 img.movie-poster {
