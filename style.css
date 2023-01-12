@@ -41,7 +41,7 @@ a {
 
 #icon-group img:hover {
     opacity: 90%;
-    transform: rotate(8deg);
+    transform: rotate(12deg);
 }
 
 img#profile-pic {
