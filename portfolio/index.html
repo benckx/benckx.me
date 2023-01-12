@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>benckx</title>
+    <link rel="stylesheet" href="../style.css"/>
+    <link rel="icon" type="image/png" href="../icons/encelade-icon-50px.png">
+</head>
+<body>
+<div id="main-container">
+    <h1>Portfolio</h1>
+    <p>Below is a list of side projects, tutorial, demo and prototypes at various stages of development and completion.
+        Most of them are not directly related to my day-to-day work, but peaked my interest at some point.</p>
+    <h2>Machine Learning</h2>
+    <h3>Classify Movies Posters</h3>
+    <p>When looking at a movie poster you never saw before, in a train station for example, you can generally get a
+        sense of the kind of movie ist is (big colorful fonts signal comedy, faded colors a more serious tone, etc.)
+        This
+        made me realize it should be possible to train a small CNN model to detect this.</p>
+    <img src="posters/the-matrix.jpg" alt="The Matrix (1999)" class="movie-poster"/>
+    <img src="posters/the-others.jpg" alt="The Others (2001)" class="movie-poster"/>
+    <img src="posters/aliens.jpg" alt="Alien: Resurrection (1997)" class="movie-poster"/>
+    <pre class="code-block">
+The Matrix (1999)          ['Action: 91%', 'Drama[!]: 25%', 'Adventure[!]: 13%']
+The Others (2001)          ['Drama[!]: 76%', 'Horror: 65%', 'Action[!]: 41%']
+Alien: Resurrection (1997) ['Horror: 67%', 'Action: 64%', 'Drama[!]: 43%']
+    </pre>
+    <img src="posters/the-trueman-show.jpg" alt="The Truman Show (1998)" class="movie-poster"/>
+    <img src="posters/pretty-woman.jpg" alt="Pretty Woman (1990)" class="movie-poster"/>
+    <img src="posters/whatever-works.jpg" alt="Whatever Works (2009)" class="movie-poster"/>
+    <pre class="code-block">
+The Truman Show (1998)           ['Comedy: 98%', 'Drama: 76%', 'Romance[!]: 7%']
+Pretty Woman (1990)              ['Romance: 99%', 'Comedy: 99%', 'Drama[!]: 22%']
+Whatever Works (2009)            ['Drama[!]: 86%', 'Comedy: 78%', 'Romance: 76%']
+    </pre>
+    <p><a href="https://github.com/benckx/dnn-movie-posters" target="_blank">
+        <img class="github-link-logo"/>GitHub
+    </a></p>
+    <h3>Generate Movies Posters</h3>
+    <p>It then occurred to me I could feed the same data into a GAN to generate movie posters, and sample the process at
+        each iteration to show the learning process of the model in a video. Granted, it doesn't look like much today,
+        given the wide diffusion of stunning AI-generated images, but back in 2018 it was a bit more of a feat to make
+        this work.</p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/Mb9ZNO_hXVY" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+    <h3>Generate Abstract Video</h3>
+    <h2>Game Development</h2>
+    <h3><i>Everybody Loves Bricks</i></h3>
+    <h3>Camera Manager</h3>
+    <h3>Asset Visualizer</h3>
+    <h3>Some JME utils</h3>
+    <h3>CorsixTH</h3>
+    <h2>Coding</h2>
+    <h3>Generate jOOQ code from Liquibase</h3>
+    <h3>Optimize PDFs for eReaders</h3>
+    <h3>Count your time based on Git history</h3>
+    <h2>Retro Gaming</h2>
+    <h3>vaporwave</h3>
+    <h2>Experiments</h2>
+    <h3>Are rappers Gemini?</h3>
+    <p>I was arguing with somebody about the legitimacy of astrology. After some back-and-forth, the person stated that
+        since "most rappers were Gemini", that would indicate some level of correlation between astrological sign and
+        areas of interest.</p>
+    <p>Since it was a falsifiable statement, this kindled my curiosity, and I took a couple of hours to write a small
+        script that would fetch all rappers on Wikipedia along their date of birth. Quite unsurprisingly, one would find
+        no remarkable or significant correlation between the musical genre and the Gemini.</p>
+    <p>This may all seems a little bit odd and out of place, but I would argue it is important to develop the tools of
+        critical thinking and debunk quackery everywhere it's found.</p>
+    <p><a href="https://github.com/benckx/are-rappers-gemini" target="_blank">
+        <img class="github-link-logo"/>GitHub
+    </a></p>
+    <h3>Baudelaire on QR</h3>
+    <h3>Physarium</h3>
+</div>
+</body>
+</html>
