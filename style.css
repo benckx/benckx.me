@@ -1,0 +1,52 @@
+html {
+    background-color: #aeb6cb;
+    font-family: hero-new, sans-serif;
+    font-size: 16px;
+    line-height: 1.3;
+    color: #333;
+}
+
+#my-name {
+    font-size: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+#main-container {
+    border-radius: 10px;
+    max-width: 700px;
+    width: 60%;
+    background-color: #cdd7ed;
+    margin: 180px auto auto;
+    padding: 50px 70px;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+
+#icon-group {
+    width: 500px;
+    margin: 35px auto 5px;
+    text-align: center;
+    /*background-color: red;*/
+}
+
+#icon-group img {
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+img#profile-pic {
+    border-radius: 100%;
+    width: 180px;
+    height: 180px;
+    outline-offset: -1px;
+    outline: 2px solid #2a2d33;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+    display: block;
+    /*margin: -83px auto 40px;*/
+    margin-top: -110px;
+    margin-bottom: 40px;
+    margin-left: 15px;
+    transform: rotate(4deg);
+}
