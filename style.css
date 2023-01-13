@@ -26,7 +26,10 @@ a:hover {
     color: #fa0b00;
 }
 
-.social-media-link-logo img, a.github-link-logo img {
+p.github-link-logo img,
+p.github-link-logo-autofill img,
+p.vjloops-link-logo img,
+p.vjloops-link-logo img {
     width: 17px;
     height: 17px;
     margin-top: -3px;
@@ -34,12 +37,20 @@ a:hover {
     vertical-align: middle;
 }
 
-a.github-link-logo img {;
+p.github-link-logo img, p.github-link-logo-autofill img {
     content: url(icons/github-mark-black-35px.png);
 }
 
-a.github-link-logo::after {
+p.vjloops-link-logo img, p.vjloops-link-logo img {
+    content: url(icons/vjloops-rounded-35px.png);
+}
+
+p.github-link-logo-autofill a::after {
     content: "GitHub";
+}
+
+p.vjloops-link-logo a::after {
+    content: "VJ Loops";
 }
 
 #main-container {
