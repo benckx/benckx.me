@@ -53,7 +53,7 @@ a.github-link-logo::after {
 }
 
 #social-media-icons {
-    width: 380px;
+    width: 360px;
     margin: 40px auto 5px;
     text-align: center;
     /*background-color: red;*/
@@ -63,8 +63,8 @@ a.github-link-logo::after {
     padding-left: 5px;
     padding-right: 5px;
     opacity: 60%;
-    width: 33px;
-    height: 33px;
+    width: 35px;
+    height: 35px;
 }
 
 #social-media-icons img:hover {
