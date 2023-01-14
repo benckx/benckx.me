@@ -38,11 +38,11 @@ p.vjloops-link-logo img {
 }
 
 p.github-link-logo img, p.github-link-logo-autofill img {
-    content: url(icons/github-mark-black-35px.png);
+    content: url(images/icons/github-mark-black-35px.png);
 }
 
 p.vjloops-link-logo img, p.vjloops-link-logo img {
-    content: url(icons/vjloops-rounded-35px.png);
+    content: url(images/icons/vjloops-rounded-35px.png);
 }
 
 p.github-link-logo-autofill a::after {
