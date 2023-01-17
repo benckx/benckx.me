@@ -44,7 +44,9 @@ a:hover {
 p.github-link-logo img,
 p.github-link-logo-autofill img,
 p.vjloops-link-logo img,
-p.vjloops-link-logo-autofill img {
+p.vjloops-link-logo-autofill img,
+p.itch-link-logo img,
+p.itch-link-logo-autofill img{
     width: 17px;
     height: 17px;
     margin-top: -3px;
@@ -60,12 +62,20 @@ p.vjloops-link-logo img, p.vjloops-link-logo-autofill img {
     content: url(images/icons/vjloops-rounded-35px.png);
 }
 
+p.itch-link-logo img, p.itch-link-logo-autofill img {
+    content: url(images/icons/itch-io-blacked-35px.png);
+}
+
 p.github-link-logo-autofill a::after {
     content: "GitHub";
 }
 
-p.vjloops-link-logo a::after {
+p.vjloops-link-logo-autofill a::after {
     content: "VJ Loops";
+}
+
+p.itch-link-logo-autofill a::after {
+    content: "Itch";
 }
 
 #main-container {
