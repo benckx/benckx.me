@@ -44,7 +44,7 @@ a:hover {
 p.github-link-logo img,
 p.github-link-logo-autofill img,
 p.vjloops-link-logo img,
-p.vjloops-link-logo img {
+p.vjloops-link-logo-autofill img {
     width: 17px;
     height: 17px;
     margin-top: -3px;
@@ -56,7 +56,7 @@ p.github-link-logo img, p.github-link-logo-autofill img {
     content: url(images/icons/github-mark-black-35px.png);
 }
 
-p.vjloops-link-logo img, p.vjloops-link-logo img {
+p.vjloops-link-logo img, p.vjloops-link-logo-autofill img {
     content: url(images/icons/vjloops-rounded-35px.png);
 }
 
