@@ -80,8 +80,8 @@ Whatever Works (2009)       ['Drama[!]: 86%', 'Comedy: 78%', 'Romance: 76%']
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen></iframe>
     <p>The game is written is Kotlin and is based on the <a href="https://jmonkeyengine.org/" target="_blank">jMonkeyEngine
-        (JME)</a>, which is itself based on <a href="https://www.lwjgl.org/" target="_blank">Lightweight Java Game
-        Library (LWJGL)</a>
+        (JME)</a>, which acts as an API on top of the <a href="https://www.lwjgl.org/" target="_blank">Lightweight Java
+        Game Library (LWJGL)</a>
     </p>
     <p class="itch-link-logo-autofill">
         <a href="https://benckx.itch.io/elb" target="_blank"><img/></a>
@@ -95,6 +95,8 @@ Whatever Works (2009)       ['Drama[!]: 86%', 'Comedy: 78%', 'Romance: 76%']
     <h3>CorsixTH</h3>
     <h2>Coding</h2>
     <h3>Generate jOOQ code from Liquibase</h3>
+    <p>Tutorial that explains how to generate DAO code based on a Liquibase definition. This generated code can be used
+        e.g. to insert a new row in a table:</p>
     <pre><code class="language-kotlin">dslContext.transaction { cfg ->
     val personDao = PersonDao(cfg)
     val person = Person()
@@ -102,6 +104,9 @@ Whatever Works (2009)       ['Drama[!]: 86%', 'Comedy: 78%', 'Romance: 76%']
     person.lastName = "Baudelaire"
     personDao.insert(person)
 }</code></pre>
+    <p>Classes <code class="language-kotlin">PersonDao</code> and <code class="language-kotlin">PersonDao</code> have
+        been generated during the Gradle build, directly from the Liquibase definition. This reduces the boilerplate of
+        writing DAO code and SQL queries in your application.</p>
     <p class="github-link-logo-autofill">
         <a href="https://github.com/benckx/liquibase-jooq-codegen-example" target="_blank"><img/></a>
     </p>
