@@ -150,3 +150,32 @@ img.movie-poster {
     margin-top: 10px;
     margin-right: 16px;
 }
+
+@media (max-width: 1000px) {
+    html {
+        font-size: 28px;
+    }
+
+    #main-container {
+        max-width: unset;
+        width: 100%;
+        border-radius: unset;
+        padding: 50px 30px;
+    }
+
+    #my-name {
+        font-size: 32px;
+    }
+
+    #social-media-icons {
+        width: 100%;
+        margin-top: 50px;
+    }
+
+    #social-media-icons img {
+        padding-left: 10px;
+        padding-right: 10px;
+        width: 60px;
+        height: 60px;
+    }
+}
