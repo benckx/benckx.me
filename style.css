@@ -6,6 +6,12 @@ html {
     color: #333;
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 iframe.routing {
     position: fixed;
     top: 0;
@@ -78,12 +84,18 @@ p.itch-link-logo-autofill a::after {
     content: "Itch";
 }
 
+#outer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
 #main-container {
     border-radius: 10px;
     max-width: 700px;
     width: 60%;
     background-color: #d8e0f1;
-    margin: 180px auto auto;
     padding: 50px 70px;
     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
 }
@@ -92,7 +104,6 @@ p.itch-link-logo-autofill a::after {
     width: 360px;
     margin: 40px auto 5px;
     text-align: center;
-    /*background-color: red;*/
 }
 
 #social-media-icons img {
