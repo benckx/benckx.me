@@ -40,7 +40,8 @@ iframe.routing {
 
 a {
     text-decoration: none;
-    color: #1d41a4;
+    color: #0426a1;
+    font-weight: bold;
 }
 
 a:hover {
@@ -97,6 +98,7 @@ p.itch-link-logo-autofill a::after {
     width: 60%;
     background-color: #d8e0f1;
     padding: 50px 70px;
+    padding-bottom: 24px;
     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
 }
 
@@ -134,6 +136,12 @@ img#profile-pic {
     transform: rotate(4deg);
 }
 
+#links-blocks {
+    font-size: 14px;
+    margin-top: 34px;
+    text-align: center;
+}
+
 .code-block, pre code.hljs {
     font-size: 12px;
     border-radius: 2px;
@@ -153,7 +161,7 @@ img.movie-poster {
 
 @media (max-width: 1000px) {
     html {
-        font-size: 32px;
+        font-size: 28px;
     }
 
     #main-container {
@@ -185,5 +193,10 @@ img.movie-poster {
         margin-top: -150px;
         margin-bottom: 70px;
         margin-left: 40px;
+    }
+
+    #links-blocks {
+        font-size: 24px;
+        margin-top: 50px;
     }
 }

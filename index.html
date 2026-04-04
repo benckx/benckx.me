@@ -4,8 +4,15 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <title>benckx</title>
-    <link rel="stylesheet" href="style.min.css"/>
+        <link rel="stylesheet" href="style.min.css"/>
+<!--    <link rel="stylesheet" href="style.css"/>-->
     <link rel="icon" type="image/png" href="images/icons/encelade-icon-50px.png">
+    <script>
+        const start = new Date(2008, 8, 1); // September 2008 (month is 0-indexed)
+        const now = new Date();
+        const yearsOfExperience = Math.floor((now - start) / (1000 * 60 * 60 * 24 * 365.25));
+        document.getElementById('years-of-experience').textContent = yearsOfExperience.toString();
+    </script>
 </head>
 <body>
 <div id="outer-container">
@@ -13,12 +20,13 @@
         <img src="images/me.jpg" id="profile-pic" alt="me"/>
         <span id="my-name"><span class="my-handle">Ben</span>oît Vlemin<span class="my-handle">ckx</span></span>
         <p>
-            I'm a software developer with 17 years of experience. I mainly work in Java, Scala and Kotlin. Beside
+            I'm a software developer with <span id="years-of-experience">N</span> years of experience. I mainly work in Java, Scala and Kotlin. Beside
             JVM-based languages, I have some experience with Python, JavaScript, Lua and a few others.
         </p>
         <p>
             I have been employed in the energy optimization sector at Centrica for the last 7 years, currently working
-            on various IoT projects. I'm also the developer of <a href="https://elephantchess.io" target="_blank">https://elephantchess.io</a>,
+            on various IoT projects. I'm also the developer of
+            <nobr><a href="https://elephantchess.io" target="_blank">https://elephantchess.io</a></nobr>,
             a webapp to play and study Chinese chess.
         </p>
         <p>
@@ -41,15 +49,15 @@
             <a href="https://elephantchess.io/@/benckx" target="_blank">
                 <img src="images/icons/elephant-icon-50px.png" alt="elephantchess.io"/>
             </a>
-<!--            <a href="https://www.patreon.com/user/creators?u=69043418" target="_blank">-->
-<!--                <img src="images/icons/patreon_black_logo_icon_147098.png" alt="Who I support"/>-->
-<!--            </a>-->
             <a href="https://en.tipeee.com/user/g114396221322791062636" target="_blank">
                 <img src="images/icons/tipeee.png" alt="Who I support"/>
             </a>
         </div>
+        <div id="links-blocks">
+            <a href="https://kbopub.economie.fgov.be/kbopub/zoeknummerform.html?nummer=0700.990.987&actionLu=Recherche&lang=en"
+               target="_blank">about my company</a>
+        </div>
     </div>
 </div>
-<p style="display: none">test DNS</p>
 </body>
 </html>
