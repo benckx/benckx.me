@@ -70,9 +70,15 @@
     </div>
 
     <h2>Setup</h2>
-    <pre><code>&lt;link rel="stylesheet" href="https://cdn.elephantchess.io/dist/latest/board.css"&gt;
-&lt;script defer src="https://cdn.elephantchess.io/dist/latest/xiangqi.js"&gt;&lt;/script&gt;
-&lt;script defer src="https://cdn.elephantchess.io/dist/latest/board-gui.js"&gt;&lt;/script&gt;
+    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"/&gt;
+  &lt;link rel="stylesheet" href="https://cdn.elephantchess.io/dist/latest/board.css"&gt;
+  &lt;script defer src="https://cdn.elephantchess.io/dist/latest/xiangqi.js"&gt;&lt;/script&gt;
+  &lt;script defer src="https://cdn.elephantchess.io/dist/latest/board-gui.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
 
 &lt;div id="board-container" class="board-container"&gt;&lt;/div&gt;
 
@@ -81,7 +87,10 @@
       const boardGui = new BoardGui(); // defaults to #board-container
       boardGui.loadFen(DEFAULT_START_FEN);
   });
-&lt;/script&gt;</code></pre>
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
 </div>
 
 <script defer src="https://cdn.elephantchess.io/dist/latest/xiangqi.js"></script>
