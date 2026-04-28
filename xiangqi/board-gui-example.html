@@ -6,7 +6,7 @@
     <meta name="description"
           content="Minimal standalone example showing how to use the board-gui.js widget."/>
     <meta name="robots" content="noindex"/>
-    <link rel="stylesheet" href="https://cdn.elephantchess.io/dist/latest/board.css"/>
+    <link rel="stylesheet" href="https://cdn.elephantchess.io/dist/latest/board.min.css"/>
     <style>
         html, body {
             margin: 0;
@@ -52,12 +52,11 @@
 <div class="example-page">
     <h1><code>board-gui.js</code> – minimal example</h1>
     <p>
-        This page demonstrates the <em>smallest</em> working setup for the
-        <code>BoardGui</code> widget: just <code>board.css</code>,
-        <code>xiangqi.js</code> and <code>board-gui.js</code>.
-        View the page source for a copy-pasteable starting point.
+        This page demonstrates the <em>smallest</em> working setup for the <code>BoardGui</code> widget: just <code>board.css</code>,
+        <code>xiangqi.js</code> and <code>board-gui.js</code>. View the page source for a copy-pasteable starting point.
+        The non-minified versions of the JS and CSS files are accessible if you just removed the ".min" from the URLs,
+        so you can also see the functions.
     </p>
-
     <div class="board-wrapper">
         <div id="board-container" class="board-container"></div>
     </div>
@@ -67,6 +66,8 @@
         <button id="btn-flip">Flip</button>
         <button id="btn-clear">Clear</button>
         <button id="btn-fen">Log FEN</button>
+        <button id="btn-style-romanized">Pieces: Romanized rounded</button>
+        <button id="btn-style-traditional">Pieces: Traditional</button>
     </div>
 
     <h2>Setup</h2>
@@ -74,9 +75,9 @@
 &lt;html lang="en"&gt;
 &lt;head&gt;
   &lt;meta charset="UTF-8"/&gt;
-  &lt;link rel="stylesheet" href="https://cdn.elephantchess.io/dist/latest/board.css"&gt;
-  &lt;script defer src="https://cdn.elephantchess.io/dist/latest/xiangqi.js"&gt;&lt;/script&gt;
-  &lt;script defer src="https://cdn.elephantchess.io/dist/latest/board-gui.js"&gt;&lt;/script&gt;
+  &lt;link rel="stylesheet" href="https://cdn.elephantchess.io/dist/latest/board.min.css"&gt;
+  &lt;script defer src="https://cdn.elephantchess.io/dist/latest/xiangqi.min.js"&gt;&lt;/script&gt;
+  &lt;script defer src="https://cdn.elephantchess.io/dist/latest/board-gui.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
 
@@ -93,16 +94,16 @@
 &lt;/html&gt;</code></pre>
 </div>
 
-<script defer src="https://cdn.elephantchess.io/dist/latest/xiangqi.js"></script>
-<script defer src="https://cdn.elephantchess.io/dist/latest/board-gui.js"></script>
+<script defer src="https://cdn.elephantchess.io/dist/latest/xiangqi.min.js"></script>
+<script defer src="https://cdn.elephantchess.io/dist/latest/board-gui.min.js"></script>
+<!--<script defer src="/js/modules/xiangqi.js"></script>-->
+<!--<script defer src="/js/widgets/board-gui.js"></script>-->
 
 <script>
     window.addEventListener('load', () => {
         const boardGui = new BoardGui({
             // elementId: 'board-container', // (default)
-            showCoordinates: true,
-            // pull piece images from the production CDN (default), or override
-            // with `assetsBaseUrl: ''` to serve them from the same host.
+            showCoordinates: true
         });
 
         boardGui.loadFen(DEFAULT_START_FEN);
@@ -120,6 +121,12 @@
 
         document.getElementById('btn-fen').onclick = () =>
             console.log('current FEN:', boardGui.outputFen());
+
+        document.getElementById('btn-style-romanized').onclick = () =>
+            boardGui.updatePieceStyle('ROMANIZED_ROUNDED');
+
+        document.getElementById('btn-style-traditional').onclick = () =>
+            boardGui.updatePieceStyle('TRADITIONAL');
     });
 </script>
 </body>
