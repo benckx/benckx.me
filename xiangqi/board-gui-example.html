@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>board-gui.js – minimal example</title>
+    <meta name="description"
+          content="Minimal standalone example showing how to use the board-gui.js widget."/>
+    <meta name="robots" content="noindex"/>
+    <link rel="stylesheet" href="https://cdn.elephantchess.io/dist/latest/board.css"/>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            background: #f5f1ea;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        .example-page {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2em 1em;
+        }
+
+        .board-wrapper {
+            max-width: 540px;
+            margin: 1.5em auto;
+        }
+
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5em;
+            justify-content: center;
+            margin-top: 1em;
+        }
+
+        .controls button {
+            padding: 0.5em 1em;
+            cursor: pointer;
+        }
+
+        pre {
+            background: #fff;
+            padding: 1em;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="example-page">
+    <h1><code>board-gui.js</code> – minimal example</h1>
+    <p>
+        This page demonstrates the <em>smallest</em> working setup for the
+        <code>BoardGui</code> widget: just <code>board.css</code>,
+        <code>xiangqi.js</code> and <code>board-gui.js</code>.
+        View the page source for a copy-pasteable starting point.
+    </p>
+
+    <div class="board-wrapper">
+        <div id="board-container" class="board-container"></div>
+    </div>
+
+    <div class="controls">
+        <button id="btn-reset">Reset</button>
+        <button id="btn-flip">Flip</button>
+        <button id="btn-clear">Clear</button>
+        <button id="btn-fen">Log FEN</button>
+    </div>
+
+    <h2>Setup</h2>
+    <pre><code>&lt;link rel="stylesheet" href="https://cdn.elephantchess.io/dist/latest/board.css"&gt;
+&lt;script defer src="https://cdn.elephantchess.io/dist/latest/xiangqi.js"&gt;&lt;/script&gt;
+&lt;script defer src="https://cdn.elephantchess.io/dist/latest/board-gui.js"&gt;&lt;/script&gt;
+
+&lt;div id="board-container" class="board-container"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+  window.addEventListener('load', () =&gt; {
+      const boardGui = new BoardGui(); // defaults to #board-container
+      boardGui.loadFen(DEFAULT_START_FEN);
+  });
+&lt;/script&gt;</code></pre>
+</div>
+
+<script defer src="https://cdn.elephantchess.io/dist/latest/xiangqi.js"></script>
+<script defer src="https://cdn.elephantchess.io/dist/latest/board-gui.js"></script>
+
+<script>
+    window.addEventListener('load', () => {
+        const boardGui = new BoardGui({
+            // elementId: 'board-container', // (default)
+            showCoordinates: true,
+            // pull piece images from the production CDN (default), or override
+            // with `assetsBaseUrl: ''` to serve them from the same host.
+        });
+
+        boardGui.loadFen(DEFAULT_START_FEN);
+
+        boardGui.addAfterMoveListener(move => {
+            console.log('move played:', move, '\nFEN:', boardGui.outputFen());
+        });
+
+        document.getElementById('btn-reset').onclick = () =>
+            boardGui.loadFen(DEFAULT_START_FEN);
+
+        document.getElementById('btn-flip').onclick = () => boardGui.flip();
+
+        document.getElementById('btn-clear').onclick = () => boardGui.clearBoard();
+
+        document.getElementById('btn-fen').onclick = () =>
+            console.log('current FEN:', boardGui.outputFen());
+    });
+</script>
+</body>
+</html>
