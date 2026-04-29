@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"/>
     <title>board-gui.js – minimal example</title>
-    <meta name="description"
-          content="Minimal standalone example showing how to use the board-gui.js widget."/>
-    <meta name="robots" content="noindex"/>
-    <link rel="stylesheet" href="https://cdn.elephantchess.io/dist/latest/board.min.css"/>
+    <meta name="keywords" content="xiangqi, 象棋, elephant chess, chinese chess, chess variant, chess regional variant, chess variations, chess problems, chess puzzles, engine, stockfish, pikafish, pikafish online, pika fish, fairy stockfish, puzzle, chess puzzle, uci, ucci, xiangqi online, chinese chess online, chinese chess database, chinese chess puzzles, chinese chess problems, xiangqi puzzles, chinese chess player, chinese openings, chinese chess strategies, chinese chess tactics, chinese chess rules">
+    <meta name="author" content="benckx">
+    <meta charset="UTF-8">
+    <meta name="description" content="Minimal standalone example showing how to use the board-gui.js widget.">
+    <meta name="robots" content="noindex">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/board.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
     <style>
         html, body {
             margin: 0;
@@ -14,18 +17,15 @@
             background: #f5f1ea;
             font-family: system-ui, -apple-system, sans-serif;
         }
-
         .example-page {
             max-width: 900px;
             margin: 0 auto;
             padding: 2em 1em;
         }
-
         .board-wrapper {
             max-width: 540px;
             margin: 1.5em auto;
         }
-
         .controls {
             display: flex;
             flex-wrap: wrap;
@@ -33,20 +33,28 @@
             justify-content: center;
             margin-top: 1em;
         }
-
         .controls button {
             padding: 0.5em 1em;
             cursor: pointer;
         }
-
         pre {
-            background: #fff;
-            padding: 1em;
             border: 1px solid #ddd;
             border-radius: 4px;
             overflow-x: auto;
         }
+        .hljs {
+            background:#fff;
+        }
+        @media (max-width: 1000px) {
+            .board-wrapper {
+                max-width: 90%;
+                margin: 2em auto;
+            }
+        }
     </style>
+    <script defer src="/js/modules/xiangqi.js"></script>
+    <script defer src="/js/widgets/board-gui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 </head>
 <body>
 <div class="example-page">
@@ -60,71 +68,69 @@
     <div class="board-wrapper">
         <div id="board-container" class="board-container"></div>
     </div>
-
     <div class="controls">
         <button id="btn-reset">Reset</button>
         <button id="btn-flip">Flip</button>
         <button id="btn-clear">Clear</button>
         <button id="btn-fen">Log FEN</button>
+        <button id="btn-random-move">Play random legal move</button>
         <button id="btn-style-romanized">Pieces: Romanized rounded</button>
         <button id="btn-style-traditional">Pieces: Traditional</button>
     </div>
-
     <h2>Setup</h2>
-    <pre><code>&lt;!DOCTYPE html&gt;
+    <pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
   &lt;meta charset="UTF-8"/&gt;
-  &lt;link rel="stylesheet" href="https://cdn.elephantchess.io/dist/latest/board.min.css"&gt;
-  &lt;script defer src="https://cdn.elephantchess.io/dist/latest/xiangqi.min.js"&gt;&lt;/script&gt;
-  &lt;script defer src="https://cdn.elephantchess.io/dist/latest/board-gui.min.js"&gt;&lt;/script&gt;
+  &lt;link rel="stylesheet" href="https://cdn.elephantchess.io/dist/0.0.1/board.min.css"&gt;
+  &lt;script defer src="https://cdn.elephantchess.io/dist/0.0.1/xiangqi.min.js"&gt;&lt;/script&gt;
+  &lt;script defer src="https://cdn.elephantchess.io/dist/0.0.1/board-gui.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-
 &lt;div id="board-container" class="board-container"&gt;&lt;/div&gt;
-
 &lt;script&gt;
   window.addEventListener('load', () =&gt; {
       const boardGui = new BoardGui(); // defaults to #board-container
       boardGui.loadFen(DEFAULT_START_FEN);
   });
 &lt;/script&gt;
-
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 </div>
-
-<script defer src="https://cdn.elephantchess.io/dist/latest/xiangqi.min.js"></script>
-<script defer src="https://cdn.elephantchess.io/dist/latest/board-gui.min.js"></script>
-<!--<script defer src="/js/modules/xiangqi.js"></script>-->
-<!--<script defer src="/js/widgets/board-gui.js"></script>-->
-
 <script>
     window.addEventListener('load', () => {
+        hljs.highlightAll();
+        // by default: https://cdn.elephantchess.io/static
+        const assetsBaseUrl = '';
         const boardGui = new BoardGui({
             // elementId: 'board-container', // (default)
-            showCoordinates: true
+            showCoordinates: true,
+            assetsBaseUrl: assetsBaseUrl
         });
-
         boardGui.loadFen(DEFAULT_START_FEN);
-
         boardGui.addAfterMoveListener(move => {
             console.log('move played:', move, '\nFEN:', boardGui.outputFen());
         });
-
-        document.getElementById('btn-reset').onclick = () =>
-            boardGui.loadFen(DEFAULT_START_FEN);
-
+        document.getElementById('btn-reset').onclick = () => {
+            boardGui.drawHistoricalPosition(DEFAULT_START_FEN, true);
+        }
         document.getElementById('btn-flip').onclick = () => boardGui.flip();
-
         document.getElementById('btn-clear').onclick = () => boardGui.clearBoard();
-
         document.getElementById('btn-fen').onclick = () =>
             console.log('current FEN:', boardGui.outputFen());
-
+        document.getElementById('btn-random-move').onclick = () => {
+            const legalMoves = boardGui.board.listAllLegalMoves();
+            if (legalMoves.length === 0) {
+                console.log('no legal moves available');
+                return;
+            }
+            const move = legalMoves[Math.floor(Math.random() * legalMoves.length)];
+            console.log('playing random move:', move);
+            boardGui.registerOpponentMove(move, false, () => {
+            });
+        };
         document.getElementById('btn-style-romanized').onclick = () =>
             boardGui.updatePieceStyle('ROMANIZED_ROUNDED');
-
         document.getElementById('btn-style-traditional').onclick = () =>
             boardGui.updatePieceStyle('TRADITIONAL');
     });
