@@ -8,7 +8,7 @@
     <meta name="description" content="Minimal standalone example showing how to use the board-gui.js widget.">
     <meta name="robots" content="noindex">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/css/board.css">
+    <link rel="stylesheet" href="https://cdn.elephantchess.io/dist/0.0.1/board.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
     <style>
         html, body {
@@ -52,8 +52,8 @@
             }
         }
     </style>
-    <script defer src="/js/modules/xiangqi.js"></script>
-    <script defer src="/js/widgets/board-gui.js"></script>
+    <script defer src="https://cdn.elephantchess.io/dist/0.0.1/xiangqi.min.js"></script>
+    <script defer src="https://cdn.elephantchess.io/dist/0.0.1/board-gui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 </head>
 <body>
@@ -101,7 +101,7 @@
     window.addEventListener('load', () => {
         hljs.highlightAll();
         // by default: https://cdn.elephantchess.io/static
-        const assetsBaseUrl = '';
+        const assetsBaseUrl = 'https://cdn.elephantchess.io/static';
         const boardGui = new BoardGui({
             // elementId: 'board-container', // (default)
             showCoordinates: true,
