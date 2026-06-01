@@ -9,12 +9,14 @@
     <link rel="icon" type="image/png" href="images/icons/encelade-icon-50px.png">
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            const oneYearInMillis = 1000 * 60 * 60 * 24 * 365.25;
+
             const startOfCareer = new Date(2008, 8, 1); // September 2008 (month is 0-indexed)
-            const yearsOfExperience = Math.floor((new Date() - startOfCareer) / (1000 * 60 * 60 * 24 * 365.25));
+            const yearsOfExperience = Math.floor((new Date() - startOfCareer) / oneYearInMillis);
             document.getElementById('years-of-experience').textContent = yearsOfExperience.toString();
 
             const currentPositionStart = new Date(2018, 7, 1); // August 2018 (month is 0-indexed)
-            const yearInCurrentPosition = Math.floor((new Date() - currentPositionStart) / (1000 * 60 * 60 * 24 * 365.25));
+            const yearInCurrentPosition = Math.floor((new Date() - currentPositionStart) / oneYearInMillis);
             document.getElementById('years-at-employer').textContent = yearInCurrentPosition.toString();
         });
     </script>
