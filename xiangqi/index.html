@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Xiangqi (Chinese Chess) Board</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords"
+          content="xiangqi, 象棋, elephant chess, chinese chess, chess variant, xiangqi online, chinese chess online">
+    <meta name="author" content="benckx">
+    <meta name="description" content="A playable Xiangqi (Chinese Chess) board powered by board-gui.js and xiangqi.js.">
+    <!--    <link rel="icon" type="image/x-icon" href="../favicon.ico">-->
+    <link rel="stylesheet" href="0.1.1/board.css">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            background: #f5f1ea;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        .page {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 2em 1em;
+        }
+
+        .board-wrapper {
+            max-width: 540px;
+            margin: 1.5em auto;
+        }
+
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5em;
+            justify-content: center;
+            margin-top: 1em;
+        }
+
+        .controls button {
+            padding: 0.5em 1em;
+            cursor: pointer;
+        }
+
+        @media (max-width: 1000px) {
+            .board-wrapper {
+                max-width: 90%;
+                margin: 2em auto;
+            }
+        }
+    </style>
+    <script defer src="0.1.1/xiangqi.js"></script>
+    <script defer src="0.1.1/board-gui.js"></script>
+</head>
+<body>
+<div class="page">
+    <h1><code>board-gui</code> library</h1>
+    <p>
+        This Chinese chess (Xiangqi) board widget is available as a library from <a href="https://elephantchess.io">elephantchess.io</a>.
+    </p>
+    <div class="board-wrapper">
+        <div id="board-container" class="board-container"></div>
+    </div>
+    <div class="controls">
+        <button id="btn-reset">Reset</button>
+        <button id="btn-flip">Flip</button>
+        <button id="btn-style">Pieces: Traditional</button>
+    </div>
+</div>
+<script>
+    window.addEventListener('load', () => {
+        const boardGui = new BoardGui({
+            elementId: 'board-container',
+            showCoordinates: true,
+            playSounds: false,
+            assetsBaseUrl: 'static'
+        });
+        boardGui.loadFen(DEFAULT_START_FEN);
+        document.getElementById('btn-reset').onclick = () => boardGui.drawHistoricalPosition(DEFAULT_START_FEN, true);
+        document.getElementById('btn-flip').onclick = () => boardGui.flip();
+
+        const pieceStyles = ['TRADITIONAL', 'ROMANIZED_ROUNDED'];
+        const pieceStyleLabels = {TRADITIONAL: 'Traditional', ROMANIZED_ROUNDED: 'Romanized'};
+        let currentStyleIndex = 0;
+        document.getElementById('btn-style').onclick = () => {
+            currentStyleIndex = (currentStyleIndex + 1) % pieceStyles.length;
+            const style = pieceStyles[currentStyleIndex];
+            boardGui.updatePieceStyle(style);
+            document.getElementById('btn-style').textContent = 'Pieces: ' + pieceStyleLabels[style];
+        };
+    });
+</script>
+</body>
