@@ -10,57 +10,10 @@
     <meta name="description" content="A playable Xiangqi (Chinese Chess) board powered by board-gui.js and xiangqi.js.">
     <!--    <link rel="icon" type="image/x-icon" href="../favicon.ico">-->
     <link rel="stylesheet" href="0.1.1/board.css">
-    <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            background: #f5f1ea;
-            font-family: system-ui, -apple-system, sans-serif;
-        }
-
-        a {
-            text-decoration: none;
-            color: #0426a1;
-            font-weight: bold;
-        }
-
-        a:hover {
-            color: #fa0b00;
-        }
-
-        .page {
-            max-width: 640px;
-            margin: 0 auto;
-            padding: 2em 1em;
-        }
-
-        .board-wrapper {
-            max-width: 540px;
-            margin: 1.5em auto;
-        }
-
-        .controls {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5em;
-            justify-content: center;
-            margin-top: 1em;
-        }
-
-        .controls button {
-            padding: 0.5em 1em;
-            cursor: pointer;
-        }
-
-        @media (max-width: 1000px) {
-            .board-wrapper {
-                max-width: 90%;
-                margin: 2em auto;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="demo.css">
     <script defer src="0.1.1/xiangqi.js"></script>
     <script defer src="0.1.1/board-gui.js"></script>
+    <script defer src="demo.js"></script>
 </head>
 <body>
 <div class="page">
@@ -79,32 +32,4 @@
         <button id="btn-style">Pieces: Traditional</button>
     </div>
 </div>
-<script>
-    window.addEventListener('load', () => {
-        const options = {
-            elementId: 'board-container',
-            showCoordinates: true,
-            playSounds: false,
-            assetsBaseUrl: 'static'
-        };
-
-        const boardGui = new BoardGui(options);
-        boardGui.loadFen(DEFAULT_START_FEN);
-
-        // reset and flip buttons
-        document.getElementById('btn-reset').onclick = () => boardGui.loadFen(DEFAULT_START_FEN, true);
-        document.getElementById('btn-flip').onclick = () => boardGui.flip();
-
-        // piece style button
-        const pieceStyles = [PieceStyleSetting.TRADITIONAL, PieceStyleSetting.ROMANIZED_ROUNDED];
-        const pieceStyleLabels = {TRADITIONAL: 'Traditional', ROMANIZED_ROUNDED: 'Romanized'};
-        let currentStyleIndex = 0;
-        document.getElementById('btn-style').onclick = () => {
-            currentStyleIndex = (currentStyleIndex + 1) % pieceStyles.length;
-            const style = pieceStyles[currentStyleIndex];
-            boardGui.updatePieceStyle(style);
-            document.getElementById('btn-style').textContent = 'Pieces: ' + pieceStyleLabels[style];
-        };
-    });
-</script>
 </body>
