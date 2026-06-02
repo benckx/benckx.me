@@ -24,4 +24,3 @@ window.addEventListener('load', () => {
         document.getElementById('btn-style').textContent = 'Pieces: ' + pieceStyleLabels[style];
     };
 });
-
