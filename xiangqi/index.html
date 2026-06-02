@@ -88,7 +88,7 @@
             assetsBaseUrl: 'static'
         });
         boardGui.loadFen(DEFAULT_START_FEN);
-        document.getElementById('btn-reset').onclick = () => boardGui.drawHistoricalPosition(DEFAULT_START_FEN, true);
+        document.getElementById('btn-reset').onclick = () => boardGui.loadFen(DEFAULT_START_FEN);
         document.getElementById('btn-flip').onclick = () => boardGui.flip();
 
         const pieceStyles = ['TRADITIONAL', 'ROMANIZED_ROUNDED'];
