@@ -17,6 +17,24 @@
             const currentPositionStart = new Date(2018, 7, 1); // August 2018 (month is 0-indexed)
             const yearInCurrentPosition = Math.floor((new Date() - currentPositionStart) / oneYearInMillis);
             document.getElementById('years-at-employer').textContent = yearInCurrentPosition.toString();
+
+            function formatCount(value) {
+                if (value >= 1000000) {
+                    return (value / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+                }
+                if (value >= 1000) {
+                    return Math.floor(value / 1000) + 'k';
+                }
+                return value.toString();
+            }
+
+            fetch('https://elephantchess.io/api/global/game-stats')
+                .then(function (response) { return response.json(); })
+                .then(function (stats) {
+                    document.getElementById('ec-games').textContent = formatCount(stats.totalInAppGames);
+                    document.getElementById('ec-moves').textContent = formatCount(Math.floor(stats.totalInAppMoves / 2));
+                })
+                .catch(function () { /* keep fallback values */ });
         });
     </script>
 </head>
@@ -38,7 +56,8 @@
         <p>
             I'm also the developer of
             <nobr><a href="https://elephantchess.io" target="_blank">https://elephantchess.io</a></nobr>
-            — an open source webapp to play and study Chinese chess, where over 118k games and 2.5M moves have been
+            — an open source webapp to play and study Chinese chess, where over
+            <span id="ec-games">118k</span> games and <span id="ec-moves">2.5M</span> moves have been
             played.
         <p>
             I'm also interested in video editing, machine learning and game design — however I'm not a specialist in
